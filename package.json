@@ -1,0 +1,27 @@
+{
+  "name": "@electron-internal/eslint-config",
+  "version": "0.0.0-development",
+  "description": "ESLint config used by Electron and Electron maintained modules",
+  "main": "index.js",
+  "repository": "https://github.com/electron/eslint-config",
+  "author": "Electron Maintainers",
+  "license": "MIT",
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.3.1",
+    "@typescript-eslint/parser": "^5.3.1",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.1"
+  },
+  "peerDependencies": {
+    "eslint": "^8.0.0",
+    "eslint-plugin-node": "^11.1.0"
+  },
+  "devDependencies": {
+    "@continuous-auth/semantic-release-npm": "^2.0.0"
+  },
+  "scripts": {
+    "test": "node -e 'require(\"./\")'"
+  }
+}
