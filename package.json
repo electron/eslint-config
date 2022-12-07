@@ -19,7 +19,7 @@
     "eslint-plugin-node": "^11.1.0"
   },
   "devDependencies": {
-    "@continuous-auth/semantic-release-npm": "^2.0.0"
+    "@continuous-auth/semantic-release-npm": "^3.0.0"
   },
   "scripts": {
     "test": "node -e 'require(\"./\")'"
