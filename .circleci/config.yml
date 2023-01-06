@@ -17,6 +17,8 @@ steps-test: &steps-test
     - run: yarn test
 
 version: 2.1
+orbs:
+  cfa: continuousauth/npm@1.0.2
 jobs:
   test-linux-12:
     docker:
@@ -30,24 +32,14 @@ jobs:
     docker:
       - image: circleci/node:16
     <<: *steps-test
-
-  release:
-    docker:
-      - image: circleci/node:14.17
-    steps:
-      - checkout
-      - *step-restore-cache
-      - run: yarn
-      - run: npx semantic-release@17.4.5
 workflows:
-  version: 2
   test_and_release:
     # Run the test jobs first, then the release only when all the test jobs are successful
     jobs:
       - test-linux-12
       - test-linux-14
       - test-linux-16
-      - release:
+      - cfa/release:
           requires:
             - test-linux-12
             - test-linux-14
@@ -56,4 +48,4 @@ workflows:
             branches:
               only:
                 - main
-
+          context: cfa-release
