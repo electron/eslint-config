@@ -23,8 +23,10 @@ workflows:
                 - '20.10'
                 - '18.18'
                 - '16.20'
-                # Stay below 14.17.0 or nvm tries to download arm64 artifacts which don't exist
-                - '14.16'
+                - '14.21'
+            exclude:
+              - executor: node/macos
+                node-version: '14.21'
       - cfa/release:
           requires:
             - test
