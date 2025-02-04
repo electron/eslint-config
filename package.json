@@ -20,5 +20,8 @@
   },
   "scripts": {
     "test": "node -e 'require(\"./\")'"
+  },
+  "publishConfig": {
+    "provenance": true
   }
 }
