@@ -17,17 +17,13 @@ jobs:
     strategy:
       matrix:
         node-version:
-          - '20.10'
-          - '18.18'
-          - '16.20'
-          - '14.21'
+          - '25.0.0'
+          - '24.10.0'
+          - '22.20.0'
         os:
           - macos-latest
           - ubuntu-latest
           - windows-latest
-        exclude:
-          - os: macos-latest
-            node-version: '14.21'
     runs-on: "${{ matrix.os }}"
     steps:
       - name: Checkout
@@ -38,6 +34,6 @@ jobs:
           node-version: "${{ matrix.node-version }}"
           cache: 'yarn'
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable
       - name: Test
         run: yarn test
